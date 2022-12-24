@@ -50,7 +50,7 @@ function App() {
 
 <ComposableMap  data-tip="">
 
-<ZoomableGroup>
+
 <PatternLines
         id="lines"
         height={6}
@@ -73,8 +73,18 @@ function App() {
 <Marker key={name} coordinates={coordinates}> <circle fill={data>5000?"#030c8890":data>1000?"#326cb4c4":data>500?"#1c9cc390":"#5992a766"} stroke={data>5000?"#030c8890":data>1000?"#326cb4c4":data>500?"1c9cc390":"#5992a766"} strokeWidth={1} r={10}/></Marker>
         ))
       }
-</ZoomableGroup>
+
 </ComposableMap>
+</div>
+<div className='d-flex justify-content-center'>
+<div className='d-flex'>
+<p className='me-3'>$ Usage</p>
+
+<p style={{width:"300px",height:"10px", backgroundColor:"#2d2195"}}>.</p>
+<p style={{width:"300px", height:"10px",backgroundColor:"#214895"}}>.</p>
+<p style={{width:"300px", height:"10px",backgroundColor:"#48869d"}}>.</p>
+<p style={{width:"300px", height:"10px",backgroundColor:"#6a8c98"}}>.</p>
+</div>
 </div>
     </div>
   );
