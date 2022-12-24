@@ -70,7 +70,7 @@ function App() {
       </Geographies>
       {
         markers.map(({name, coordinates, markerOffset, data})=>(
-<Marker key={name} coordinates={coordinates}> <circle fill={data>5000?"#030c8890":data>1000?"red":data>500?"pink":"green"} stroke={data>5000?"#030c8890":data>1000?"red":data>500?"pink":"green"} strokeWidth={1} r={10}/></Marker>
+<Marker key={name} coordinates={coordinates}> <circle fill={data>5000?"#030c8890":data>1000?"#326cb4c4":data>500?"#1c9cc390":"#5992a766"} stroke={data>5000?"#030c8890":data>1000?"#326cb4c4":data>500?"1c9cc390":"#5992a766"} strokeWidth={1} r={10}/></Marker>
         ))
       }
 </ZoomableGroup>
