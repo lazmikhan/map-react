@@ -80,10 +80,35 @@ function App() {
 <div className='d-flex'>
 <p className='me-3'>$ Usage</p>
 
+<div className=' '>
 <p style={{width:"300px",height:"10px", backgroundColor:"#2d2195"}}>.</p>
+<div className='d-flex'>
+<p style={{width:"20px",height:"20px", backgroundColor:"#2d2195"}}>.</p> 
+<small>>$5000</small>
+</div>
+
+</div>
+<div>
 <p style={{width:"300px", height:"10px",backgroundColor:"#214895"}}>.</p>
+<div className='d-flex'>
+<p style={{width:"20px",height:"20px", backgroundColor:"#214895"}}>.</p> 
+<small>>$1000</small>
+</div>
+</div>
+<div>
 <p style={{width:"300px", height:"10px",backgroundColor:"#48869d"}}>.</p>
+<div className='d-flex'>
+<p style={{width:"20px",height:"20px", backgroundColor:"#48869d"}}>.</p> 
+<small>>$500</small>
+</div>
+</div>
+<div>
 <p style={{width:"300px", height:"10px",backgroundColor:"#6a8c98"}}>.</p>
+<div className='d-flex'>
+<p style={{width:"20px",height:"20px", backgroundColor:"#6a8c98"}}>.</p> 
+<small> less than $500</small>
+</div>
+</div>
 </div>
 </div>
     </div>
