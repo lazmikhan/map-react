@@ -1,13 +1,16 @@
 
 import './App.css';
-import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from 'react-simple-maps';
+import { Annotation, ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from 'react-simple-maps';
 import { PatternCircles,PatternLines } from '@vx/pattern';
+import { useState } from 'react';
+import { Tooltip } from 'react-tooltip';
 function App() {
+  const [show, setShow]= useState("");
   const markers = [
-    {markerOffset:0,
+    {markerOffset:30,
     name:"Bangladesh",
   data:230, 
-   coordinates: [ 80.399452,23.777176]},
+   coordinates: [ 89.399452,20.777176]},
    {markerOffset:-15,
     name:"Brazil",
   data:1004, 
@@ -16,11 +19,11 @@ function App() {
     name:"Congo",
   data:592, 
    coordinates: [10.322447,3.307045]},
-   {markerOffset:15,
+   {markerOffset:-15,
     name:"India",
   data:923, 
-   coordinates: [87.644800,21.069710]},
-   {markerOffset:15,
+   coordinates: [80.644800,21.069710]},
+   {markerOffset:-15,
     name:"Japan",
   data:30283, 
    coordinates: [138.644800,35.652832]},
@@ -46,6 +49,9 @@ function App() {
   return (
     <div className="App" style={{width:"100%"}}>
 <h1>Lets Build some maps</h1>
+<Tooltip style={{backgroundColor:"#6a8c985c"}}>{show}
+
+</Tooltip>
 <div className='border border-1 w-75 mx-auto'>
 
 <ComposableMap  data-tip="">
@@ -64,13 +70,19 @@ function App() {
 <Geographies  geography={geoUrl}>
         {({ geographies }) =>
           geographies.map((geo) => (
-            <Geography   fill="url('#lines')"  key={geo.rsmKey} geography={geo} />
+            <Geography   fill="url('#lines')"  key={geo.rsmKey} geography={geo}  />
           ))
         }
       </Geographies>
       {
         markers.map(({name, coordinates, markerOffset, data})=>(
-<Marker key={name} coordinates={coordinates}> <circle fill={data>5000?"#030c8890":data>1000?"#326cb4c4":data>500?"#1c9cc390":"#5992a766"} stroke={data>5000?"#030c8890":data>1000?"#326cb4c4":data>500?"1c9cc390":"#5992a766"} strokeWidth={1} r={10}/></Marker>
+<Marker key={name} coordinates={coordinates} > 
+<circle style={{cursor:"pointer"}} onClick={()=>{
+           setShow(`Country Name: ${name} ||
+           Data Usage:${data}`)
+            }} fill={data>5000?"#030c8890":data>1000?"#326cb4c4":data>500?"#1c9cc390":"#5992a766"} stroke={data>5000?"#030c8890":data>1000?"#326cb4c4":data>500?"1c9cc390":"#5992a766"} strokeWidth={1} r={10} />
+
+</Marker>
         ))
       }
 
