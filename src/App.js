@@ -44,11 +44,26 @@ function App() {
   data:43948, 
    coordinates: [55.296249, 25.276987]}
   ]
+  var count1=0;var count2=0; var count3=0; var count4=0;
+  markers.forEach(item=>{
+    if(item.data>5000)
+      count1=count1+1;
+    else if (item.data>1000)
+    count2=count2+1;
+    else if (item.data>500)
+    count3=count3+1;
+    else if (item.data<500)
+    count4=count4+1;
+  })
+  var Percentage1= parseInt(count1/markers.length*100);
+  var Percentage2= parseInt(count2/markers.length*100);
+  var Percentage3= parseInt(count3/markers.length*100);
+  var Percentage4= parseInt(count4/markers.length*100);
   const geoUrl =
   "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json"
   return (
     <div className="App" style={{width:"100%"}}>
-<h1>Lets Build some maps</h1>
+
 <Tooltip style={{backgroundColor:"#6a8c985c"}}>{show}
 
 </Tooltip>
@@ -87,42 +102,47 @@ function App() {
       }
 
 </ComposableMap>
-</div>
 <div className='d-flex justify-content-center'>
 <div className='d-flex'>
 <p className='me-3'>$ Usage</p>
 
 <div className=' '>
-<p style={{width:"300px",height:"10px", backgroundColor:"#2d2195"}}>.</p>
+<p style={{width:"200px",height:"10px", backgroundColor:"#2d2195"}}>.</p>
 <div className='d-flex'>
 <p style={{width:"20px",height:"20px", backgroundColor:"#2d2195"}}>.</p> 
 <small>>$5000</small>
+<small className='ms-3'>{Percentage1}%</small>
 </div>
 
 </div>
 <div>
-<p style={{width:"300px", height:"10px",backgroundColor:"#214895"}}>.</p>
+<p style={{width:"200px", height:"10px",backgroundColor:"#214895"}}>.</p>
 <div className='d-flex'>
 <p style={{width:"20px",height:"20px", backgroundColor:"#214895"}}>.</p> 
 <small>>$1000</small>
+<small className='ms-3'>{Percentage2}%</small>
 </div>
 </div>
 <div>
-<p style={{width:"300px", height:"10px",backgroundColor:"#48869d"}}>.</p>
+<p style={{width:"200px", height:"10px",backgroundColor:"#48869d"}}>.</p>
 <div className='d-flex'>
 <p style={{width:"20px",height:"20px", backgroundColor:"#48869d"}}>.</p> 
 <small>>$500</small>
+<small className='ms-3'>{Percentage3}%</small>
 </div>
 </div>
 <div>
-<p style={{width:"300px", height:"10px",backgroundColor:"#6a8c98"}}>.</p>
+<p style={{width:"200px", height:"10px",backgroundColor:"#6a8c98"}}>.</p>
 <div className='d-flex'>
 <p style={{width:"20px",height:"20px", backgroundColor:"#6a8c98"}}>.</p> 
 <small> less than $500</small>
+<small className='ms-3'>{Percentage4}%</small>
 </div>
 </div>
 </div>
 </div>
+</div>
+
     </div>
   );
 }
